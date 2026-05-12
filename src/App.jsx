@@ -1,11 +1,19 @@
-import Login from './pages/Login';
-// import Dashboard from './pages/Dashboard'; // Aktifkan ini jika ingin melihat dashboard
+import { useState } from 'react'
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
+  // State untuk simulasi login sederhana
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <>
-      <Login />
-    </>
+    <div>
+      {isLoggedIn ? (
+        <Dashboard />
+      ) : (
+        <Login onLogin={() => setIsLoggedIn(true)} />
+      )}
+    </div>
   )
 }
 
